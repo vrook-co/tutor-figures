@@ -4,6 +4,7 @@ lms-worker-beat:
   image: {{ DOCKER_IMAGE_OPENEDX }}
   environment:
     SERVICE_VARIANT: lms
+    ACTIVATE_LMS: True
     SETTINGS: ${EDX_PLATFORM_SETTINGS:-tutor.production}
     C_FORCE_ROOT: "1" # run celery tasks as root #nofear
   command: ./manage.py lms celery beat --loglevel=info
