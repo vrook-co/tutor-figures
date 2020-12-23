@@ -1,4 +1,4 @@
-{% if ACTIVATE_LMS %}
+{% if RUN_LMS %}
 # Celery beat worker for periodic tasks
 lms-worker-beat:
   image: {{ DOCKER_IMAGE_OPENEDX }}
