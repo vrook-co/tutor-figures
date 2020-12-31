@@ -1,4 +1,5 @@
 # Install Figures app
-ARG FIGURES_REPOSITORY=git+https://github.com/vrook/figures.git
-ARG FIGURES_VERSION=build-0.4.prod
+ARG FIGURES_REPOSITORY=git+https://github.com/vrook-co/figures.git
+ARG FIGURES_VERSION=master
 RUN pip install -e $FIGURES_REPOSITORY@$FIGURES_VERSION#egg=figures
+RUN cd /openedx/venv/src/figures/frontend && npm install && npm run build && cp -R /openedx/venv/src/figures/figures/static/figures /openedx/staticfiles/

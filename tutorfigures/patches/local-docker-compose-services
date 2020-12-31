@@ -6,7 +6,7 @@ lms-worker-beat:
     SERVICE_VARIANT: lms
     SETTINGS: ${EDX_PLATFORM_SETTINGS:-tutor.production}
     C_FORCE_ROOT: "1" # run celery tasks as root #nofear
-  command: ./manage.py lms celery beat --loglevel=info
+  command: celery beat --loglevel=info
   restart: unless-stopped
   volumes:
     - ../apps/openedx/settings/lms/:/openedx/edx-platform/lms/envs/tutor/
